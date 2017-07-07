@@ -19,6 +19,9 @@ PKG_CONFIG_PATH=/opt/aria2/build_libs/lib/pkgconfig/ \
 LD_LIBRARY_PATH=/opt/aria2/build_libs/lib/ \
 CC="$C_COMPILER" \
 CXX="$CXX_COMPILER" \
+t="\"1\", 1, 16, 'x'));" && r="\"10\", 1, -1, 'x'));" && sed -i "s/$t/$r/" src/OptionHandlerFactory.cc
+t="\"5\", 1, -1, 's'));" && r="\"15\", 1, -1, 's'));" && sed -i "s/$t/$r/" src/OptionHandlerFactory.cc
+t="\"20M\", 1_m, 1_g, 'k'));" && r="\"1M\", 50_k, 1_g, 'k'));" && sed -i "s/$t/$r/" src/OptionHandlerFactory.cc
 ./configure \
     --prefix=$PREFIX \
     --without-libxml2 \
