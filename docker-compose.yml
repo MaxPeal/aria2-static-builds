@@ -1,0 +1,8 @@
+docker-build-aria2:
+    image: alpine:latest
+    container_name: docker_build_aria2
+    command: tail -f /dev/null
+    volumes:
+        - ./:/usr/local/src/aria2-static-builds
+    working_dir: /usr/local/src/aria2-static-builds
+

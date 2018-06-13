@@ -41,7 +41,7 @@ cd $BUILD_DIRECTORY
   tar zxvf zlib-1.2.11.tar.gz
   cd zlib-1.2.11/
   PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig/ LD_LIBRARY_PATH=$PREFIX/lib/ CC="$C_COMPILER" CXX="$CXX_COMPILER" ./configure --prefix=$PREFIX --static
-  make
+  make -j`grep -c ^processor /proc/cpuinfo`
   make install
 #
  # expat build
@@ -50,7 +50,7 @@ cd $BUILD_DIRECTORY
   tar jxvf expat-2.2.0.tar.bz2
   cd expat-2.2.0/
   PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig/ LD_LIBRARY_PATH=$PREFIX/lib/ CC="$C_COMPILER" CXX="$CXX_COMPILER" ./configure --prefix=$PREFIX --enable-static --enable-shared
-  make
+  make -j`grep -c ^processor /proc/cpuinfo`
   make install
 #
  # c-ares build
@@ -59,7 +59,7 @@ cd $BUILD_DIRECTORY
   tar zxvf c-ares-1.14.0.tar.gz
   cd c-ares-1.14.0/
   PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig/ LD_LIBRARY_PATH=$PREFIX/lib/ CC="$C_COMPILER" CXX="$CXX_COMPILER" ./configure --prefix=$PREFIX --enable-static --disable-shared
-  make
+  make -j`grep -c ^processor /proc/cpuinfo`
   make install
 #
  # Openssl build
@@ -68,7 +68,7 @@ cd $BUILD_DIRECTORY
   tar zxvf openssl-1.0.2o.tar.gz
   cd openssl-1.0.2o/
   PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig/ LD_LIBRARY_PATH=$PREFIX/lib/ CC="$C_COMPILER" CXX="$CXX_COMPILER" ./Configure --prefix=$PREFIX linux-x86_64 shared
-  make
+  make -j`grep -c ^processor /proc/cpuinfo`
   make install
 #
  # sqlite3
@@ -77,7 +77,7 @@ cd $BUILD_DIRECTORY
   tar zxvf sqlite-autoconf-3230100.tar.gz
   cd sqlite-autoconf-3230100/
   PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig/ LD_LIBRARY_PATH=$PREFIX/lib/ CC="$C_COMPILER" CXX="$CXX_COMPILER" ./configure --prefix=$PREFIX --enable-static --enable-shared
-  make
+  make -j`grep -c ^processor /proc/cpuinfo`
   make install
 #
  # libssh2
@@ -87,7 +87,7 @@ cd $BUILD_DIRECTORY
   cd libssh2-1.7.0/
   rm -rf $PREFIX/lib/pkgconfig/libssh2.pc
   PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig/ LD_LIBRARY_PATH=$PREFIX/lib/ CC="$C_COMPILER" CXX="$CXX_COMPILER" ./configure --without-libgcrypt --with-openssl --without-wincng --prefix=$PREFIX --enable-static --disable-shared
-  make
+  make -j`grep -c ^processor /proc/cpuinfo`
   make install
 #
  #cleaning
