@@ -719,6 +719,56 @@ index 726b30c..70f05d8 100644
  \fI\%max\-tries\fP
  .IP \(bu 2
  \fI\%max\-upload\-limit\fP
+diff --git a/src/bittorrent_helper.cc b/src/bittorrent_helper.cc
+index c0b1f60..0a0a631 100644
+--- a/src/bittorrent_helper.cc
++++ b/src/bittorrent_helper.cc
+@@ -216,6 +216,8 @@ void extractFileEntries(const std::shared_ptr<DownloadContext>& ctx,
+     fileEntries.reserve(filesList->size());
+     int64_t length = 0;
+     int64_t offset = 0;
++    int64_t fileIndex = 1;
++    std::string selectedFileIndex = "";
+     // multi-file mode
+     torrent->mode = BT_FILE_MODE_MULTI;
+     for (auto& f : *filesList) {
+@@ -293,7 +295,23 @@ void extractFileEntries(const std::shared_ptr<DownloadContext>& ctx,
+       fileEntry->setSuffixPath(suffixPath);
+       fileEntry->setMaxConnectionPerServer(maxConn);
+       fileEntries.push_back(fileEntry);
++
++      std::string filename = strjoin(pathelem.end()-1, pathelem.end(),' ',std::ptr_fun(util::encodeNonUtf8));
++      if( filename.find_first_of("_____padding_file_")!=std::string::npos && filename.find("BitComet")!=std::string::npos  ){
++          A2_LOG_NOTICE(fmt("ignoring file: %s",filename.c_str()));
++      }else{
++          selectedFileIndex += std::to_string(fileIndex)+",";
++      }
++
+       offset += fileEntry->getLength();
++      fileIndex += 1;
++
++    }
++    if(option->get(PREF_SELECT_FILE).empty()){
++        A2_LOG_NOTICE(fmt("SYSTEM SET PREF_SELECT_FILE: %s",selectedFileIndex.c_str()));
++        option->put(PREF_SELECT_FILE,selectedFileIndex.c_str());
++    }else{
++        A2_LOG_NOTICE(fmt("GOT USER PREF_SELECT_FILE: %s",option->get(PREF_SELECT_FILE).c_str()));
+     }
+   }
+   else {
+diff --git a/src/bittorrent_helper.h b/src/bittorrent_helper.h
+index a888601..b9ca4bd 100644
+--- a/src/bittorrent_helper.h
++++ b/src/bittorrent_helper.h
+@@ -50,6 +50,7 @@
+ #include "util.h"
+ #include "DownloadContext.h"
+ #include "TimeA2.h"
++#include "LogFactory.h"
+ 
+ namespace aria2 {
+ 
+
 EOF
 
 patch -p1 < ${patch}
