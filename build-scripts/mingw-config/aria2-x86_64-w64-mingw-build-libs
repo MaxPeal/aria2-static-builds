@@ -30,7 +30,8 @@ SSH2=https://www.libssh2.org/download/libssh2-1.7.0.tar.gz
 ## CONFIG ##
 BUILD_DIRECTORY=/tmp/
 HOST=x86_64-w64-mingw32
-PREFIX=/usr/x86_64-w64-mingw32
+###PREFIX=/usr/x86_64-w64-mingw32
+PREFIX=/tmp/usr/x86_64-w64-mingw32
 
 ## BUILD ##
 cd $BUILD_DIRECTORY
