@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # In this configuration, the following dependent libraries are compiled:
 #

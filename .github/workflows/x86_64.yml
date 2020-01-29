@@ -1,0 +1,37 @@
+#
+# This is free software, lisence use MIT.
+#
+# Copyright (C) 2020 tofuliang <tofuliang@gmail.com>
+#
+
+name: aria2_x86_64静态链接
+
+on:
+  watch:
+    types: [started]
+
+jobs:
+  build:
+    runs-on: alpine:3.11
+
+    steps:
+      - name: 校验本地文件
+        uses: actions/checkout@master
+        with:
+          ref: master
+
+      - name: 编译
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sh build-scripts/gnu-linux-config/build.sh
+      - name: 清理不必要的文件
+        run: |
+          rm -rf ./artifact/
+          mkdir -p ./artifact/
+          mv /tmp/aria2-1.35.0/src/aria2c ./artifact/
+      - name : 上传二进制文件
+        uses: actions/upload-artifact@master
+        with:
+          name: aria2c
+          path: ./artifact/

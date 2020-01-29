@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # In this configuration, the following dependent libraries are used:
 #
@@ -36,7 +36,7 @@ index 6722e0d2..3badb2db 100644
 @@ -185,6 +185,17 @@ HTTP/FTP/SFTP Options
    The maximum number of connections to one server for each download.
    Default: ``1``
- 
+
 +.. option:: --max-http-forbidden=<NUM>
 +
 +  If aria2 receives "forbidden" status from the remote HTTP
@@ -49,12 +49,12 @@ index 6722e0d2..3badb2db 100644
 +  Default: ``0``
 +
  .. option:: --max-file-not-found=<NUM>
- 
+
    If aria2 receives "file not found" status from the remote HTTP/FTP
 @@ -1927,6 +1938,13 @@ based on the last error encountered.
  32
    If checksum validation failed.
- 
+
 +101
 +   If resource was forbidden.
 +
@@ -63,7 +63,7 @@ index 6722e0d2..3badb2db 100644
 +  See :option:`--max-http-forbidden` option.
 +
  .. note::
- 
+
    An error occurred in a finished download will not be reported
 @@ -2185,6 +2203,7 @@ of URIs. These optional lines must start with white space(s).
    * :option:`lowest-speed-limit <--lowest-speed-limit>`
@@ -80,7 +80,7 @@ index 668a3331..945efb3b 100644
 @@ -189,6 +189,16 @@ Opções HTTP / FTP
    O número máximo de conexões para um servidor em cada download.
    Padrão: ``1``
- 
+
 +
 +.. option:: --max-http-forbidden=<NÚMERO>
 +
@@ -92,12 +92,12 @@ index 668a3331..945efb3b 100644
 +  Padrão: ``0``
 +
  .. option:: --max-file-not-found=<NÚMERO>
- 
+
    Se aria2 recebe çódigo de retorno "arquivo não encontrado" de um servidor
 @@ -1670,6 +1680,13 @@ retorno ou saída com base no último erro encontrado.
  30
    Se aria2 não pode passar uma requisição JSON-RPC.
- 
+
 +101
 +   Se o recurso foi proibido.
 +
@@ -106,8 +106,8 @@ index 668a3331..945efb3b 100644
 +  Ver opção :option:`--max-http-forbidden` option.
 +
  .. note::
- 
-   Um erro ocorrido em um download completado não será reportado como um 
+
+   Um erro ocorrido em um download completado não será reportado como um
 @@ -1898,6 +1915,7 @@ URI. Estas linhas opcionais precisam iniciar com um ou mais espaços.
    * :option:`lowest-speed-limit <--lowest-speed-limit>`
    * :option:`max-connection-per-server <-x>`
@@ -121,13 +121,13 @@ index cdebe6f3..18ec0bac 100644
 --- a/doc/manual-src/ru/Makefile.am
 +++ b/doc/manual-src/ru/Makefile.am
 @@ -126,7 +126,6 @@ text:
- 
+
  man:
  	$(SPHINXBUILD) -b man $(ALLSPHINXOPTS) $(BUILDDIR)/man
 -	sed -i -e '1i .\\" -*- mode: troff; coding: utf-8 -*-' $(BUILDDIR)/man/aria2c.1
  	@echo
  	@echo "Build finished. The manual pages are in $(BUILDDIR)/man."
- 
+
 diff --git a/doc/manual-src/ru/aria2c.rst b/doc/manual-src/ru/aria2c.rst
 index ebebe4f3..272fc633 100644
 --- a/doc/manual-src/ru/aria2c.rst
@@ -135,7 +135,7 @@ index ebebe4f3..272fc633 100644
 @@ -194,6 +194,18 @@ HTTP(S)/FTP, они тут же могут выгружаться в BitTorrent-
    загрузки.
    По умолчанию: ``1``
- 
+
 +.. option:: --max-http-forbidden=<NUM>
 +
 +  Если aria2 получает статус "forbidden" (найден) с
@@ -149,12 +149,12 @@ index ebebe4f3..272fc633 100644
 +  По умолчанию: ``0``
 +
  .. option:: --max-file-not-found=<NUM>
- 
+
    Если aria2 получает статус "file not found" (файл не найден) с
 @@ -2035,6 +2047,13 @@ Content-Disposition.
  32
    Если проверка контрольной суммы не удалась.
- 
+
 +101
 +  Если ресурс был запрещен.
 +
@@ -163,7 +163,7 @@ index ebebe4f3..272fc633 100644
 +  Смотрите параметр :option:`--max-http-forbidden` option.
 +
  .. note::
- 
+
    Ошибка, произошедшая в завершенной загрузке, не будет передана как код
 @@ -2297,6 +2316,7 @@ URI. Эти дополнительные строки должны начина
    * :option:`lowest-speed-limit <--lowest-speed-limit>`
@@ -191,7 +191,7 @@ index 6009dc2f..1df02b09 100644
 +++ b/src/HttpResponseCommand.cc
 @@ -239,6 +239,9 @@ bool HttpResponseCommand::executeInternal()
    }
- 
+
    if (statusCode >= 300) {
 +    if (statusCode == 403) {
 +      grp->increaseAndValidateHttpForbidden();
@@ -293,7 +293,7 @@ index 379029ec..e64c1487 100644
 +        error_code::MAX_HTTP_FORBIDDEN);
 +  }
 +}
- 
+
  void RequestGroup::increaseAndValidateFileNotFoundCount()
  {
 diff --git a/src/RequestGroup.h b/src/RequestGroup.h
@@ -301,22 +301,22 @@ index 6698f93d..3c2ac9cf 100644
 --- a/src/RequestGroup.h
 +++ b/src/RequestGroup.h
 @@ -155,6 +155,8 @@ private:
- 
+
    int numCommand_;
- 
+
 +  int httpForbiddenCount_;
 +
    int fileNotFoundCount_;
- 
+
    int maxDownloadSpeedLimit_;
 @@ -414,6 +416,8 @@ public:
- 
+
    void updateLastModifiedTime(const Time& time);
- 
+
 +  void increaseAndValidateHttpForbidden();
 +
    void increaseAndValidateFileNotFoundCount();
- 
+
    // Just set inMemoryDownload flag true.
 diff --git a/src/error_code.h b/src/error_code.h
 index 0d268c45..2af3875f 100644
@@ -329,7 +329,7 @@ index 0d268c45..2af3875f 100644
 +  RESOURCE_FORBIDDEN= 101,
 +  MAX_HTTP_FORBIDDEN=102,
  };
- 
+
  } // namespace error_code
 diff --git a/src/message.h b/src/message.h
 index 4705d7fb..b28d4a77 100644
@@ -474,13 +474,13 @@ index 2f31c1a..94a96ea 100644
  sharedstatedir = @sharedstatedir@
  srcdir = @srcdir@
 @@ -729,7 +728,6 @@ text:
- 
+
  man:
  	$(SPHINXBUILD) -b man $(ALLSPHINXOPTS) $(BUILDDIR)/man
 -	sed -i -e '1i .\\" -*- mode: troff; coding: utf-8 -*-' $(BUILDDIR)/man/aria2c.1
  	@echo
  	@echo "Build finished. The manual pages are in $(BUILDDIR)/man."
- 
+
 diff --git a/lib/Makefile.in b/lib/Makefile.in
 index a4c9d19..a8a0f4f 100644
 --- a/lib/Makefile.in
@@ -765,9 +765,9 @@ index a888601..b9ca4bd 100644
  #include "DownloadContext.h"
  #include "TimeA2.h"
 +#include "LogFactory.h"
- 
+
  namespace aria2 {
- 
+
 
 EOF
 
