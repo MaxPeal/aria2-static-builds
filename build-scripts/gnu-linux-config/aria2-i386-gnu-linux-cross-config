@@ -16,182 +16,12 @@ CXX_COMPILER="g++"
 
 patch="/tmp/"$(mktemp -u patch.XXXXXX)
 cat << "EOF" > ${patch}
-diff --git a/doc/bash_completion/aria2c b/doc/bash_completion/aria2c
-index fba97156..a77cd1aa 100644
---- a/doc/bash_completion/aria2c
-+++ b/doc/bash_completion/aria2c
-@@ -78,7 +78,7 @@ _aria2c()
-     esac
-     case $cur in
-         -*)
--            COMPREPLY=( $( compgen -W '--rpc-save-upload-metadata --rpc-save-upload-metadata=false --on-download-start --metalink-language --rpc-secret --torrent-file --enable-peer-exchange --enable-peer-exchange=false --http-proxy-passwd --bt-tracker-timeout --ftp-type --seed-time --keep-unfinished-download-result --keep-unfinished-download-result=false --bt-tracker-connect-timeout --bt-max-open-files --no-netrc --no-netrc=false --force-sequential --force-sequential=false --metalink-base-uri --private-key --ftp-passwd --allow-overwrite --allow-overwrite=false --rpc-allow-origin-all --rpc-allow-origin-all=false --bt-detach-seed-only --bt-detach-seed-only=false --dht-entry-point6 --summary-interval --lowest-speed-limit --bt-tracker-interval --proxy-method --metalink-preferred-protocol --enable-http-keep-alive --enable-http-keep-alive=false --metalink-version --stderr --stderr=false --bt-lpd-interface --force-save --force-save=false --rpc-secure --rpc-secure=false --listen-port --rpc-private-key --server-stat-of --server-stat-timeout --bt-load-saved-metadata --bt-load-saved-metadata=false --https-proxy-user --piece-length --dry-run --dry-run=false --truncate-console-readout --truncate-console-readout=false --save-not-found --save-not-found=false --async-dns-server --bt-max-peers --max-overall-upload-limit --rpc-user --optimize-concurrent-downloads --optimize-concurrent-downloads=true --optimize-concurrent-downloads=false --optimize-concurrent-downloads=A:B --dir --split --on-download-pause --auto-file-renaming --auto-file-renaming=false --http-proxy --save-session-interval --daemon --daemon=false --https-proxy --min-tls-version --save-cookies --out --rlimit-nofile --max-file-not-found --on-download-stop --certificate --bt-min-crypto-level --remove-control-file --remove-control-file=false --enable-dht --enable-dht=false --file-allocation --follow-metalink --on-bt-download-complete --ftp-proxy --show-files --show-files=false --timeout --bt-hash-check-seed --bt-hash-check-seed=false --ftp-pasv --ftp-pasv=false --check-certificate --check-certificate=false --always-resume --always-resume=false --load-cookies --bt-remove-unselected-file --bt-remove-unselected-file=false --bt-stop-timeout --version --max-concurrent-downloads --quiet --quiet=false --max-download-result --content-disposition-default-utf8 --content-disposition-default-utf8=false --max-resume-failure-tries --header --rpc-listen-all --rpc-listen-all=false --all-proxy-user --server-stat-if --dht-file-path6 --save-session --bt-external-ip --max-tries --conditional-get --conditional-get=false --ftp-reuse-connection --ftp-reuse-connection=false --gid --dscp --max-download-limit --bt-prioritize-piece --check-integrity --check-integrity=false --log-level --remote-time --remote-time=false --uri-selector --rpc-listen-port --index-out --bt-tracker --referer --ssh-host-key-md --console-log-level --connect-timeout --stream-piece-selector --dht-message-timeout --select-file --download-result --disable-ipv6 --disable-ipv6=false --rpc-max-request-size --rpc-passwd --stop-with-process --https-proxy-passwd --continue --continue=false --no-file-allocation-limit --netrc-path --ftp-proxy-user --enable-color --enable-color=false --metalink-location --allow-piece-length-change --allow-piece-length-change=false --max-connection-per-server --no-conf --no-conf=false --rpc-certificate --metalink-os --enable-http-pipelining --enable-http-pipelining=false --http-passwd --user-agent --enable-dht6 --enable-dht6=false --dht-file-path --http-auth-challenge --http-auth-challenge=false --bt-enable-hook-after-hash-check --bt-enable-hook-after-hash-check=false --peer-id-prefix --max-mmap-limit --enable-mmap --enable-mmap=false --use-head --use-head=false --bt-require-crypto --bt-require-crypto=false --show-console-readout --show-console-readout=false --conf-path --log --no-proxy --dht-entry-point --dht-listen-port --http-user --retry-wait --on-download-complete --help --help=#basic --help=#advanced --help=#http --help=#https --help=#ftp --help=#metalink --help=#bittorrent --help=#cookie --help=#hook --help=#file --help=#rpc --help=#checksum --help=#experimental --help=#deprecated --help=#help --help=#all --max-overall-download-limit --event-poll --http-accept-gzip --http-accept-gzip=false --metalink-file --all-proxy --disk-cache --hash-check-only --hash-check-only=false --dht-listen-addr6 --human-readable --human-readable=false --ftp-user --all-proxy-passwd --bt-exclude-tracker --pause-metadata --pause-metadata=false --http-proxy-user --deferred-input --deferred-input=false --metalink-enable-unique-protocol --metalink-enable-unique-protocol=false --stop --peer-agent --max-upload-limit --multiple-interface --realtime-chunk-checksum --realtime-chunk-checksum=false --http-no-cache --http-no-cache=false --ca-certificate --bt-force-encryption --bt-force-encryption=false --bt-save-metadata --bt-save-metadata=false --seed-ratio --follow-torrent --pause --pause=false --checksum --auto-save-interval --async-dns --async-dns=false --bt-enable-lpd --bt-enable-lpd=false --parameterized-uri --parameterized-uri=false --ftp-proxy-passwd --enable-rpc --enable-rpc=false --min-split-size --bt-seed-unverified --bt-seed-unverified=false --input-file --interface --enable-async-dns6 --enable-async-dns6=false --reuse-uri --reuse-uri=false --socket-recv-buffer-size --bt-request-peer-speed-limit --on-download-error --bt-metadata-only --bt-metadata-only=false ' -- "$cur" ) )
-+            COMPREPLY=( $( compgen -W '--rpc-save-upload-metadata --rpc-save-upload-metadata=false --on-download-start --metalink-language --rpc-secret --torrent-file --enable-peer-exchange --enable-peer-exchange=false --http-proxy-passwd --bt-tracker-timeout --ftp-type --seed-time --keep-unfinished-download-result --keep-unfinished-download-result=false --bt-tracker-connect-timeout --bt-max-open-files --no-netrc --no-netrc=false --force-sequential --force-sequential=false --metalink-base-uri --private-key --ftp-passwd --allow-overwrite --allow-overwrite=false --rpc-allow-origin-all --rpc-allow-origin-all=false --bt-detach-seed-only --bt-detach-seed-only=false --dht-entry-point6 --summary-interval --lowest-speed-limit --bt-tracker-interval --proxy-method --metalink-preferred-protocol --enable-http-keep-alive --enable-http-keep-alive=false --metalink-version --stderr --stderr=false --bt-lpd-interface --force-save --force-save=false --rpc-secure --rpc-secure=false --listen-port --rpc-private-key --server-stat-of --server-stat-timeout --bt-load-saved-metadata --bt-load-saved-metadata=false --https-proxy-user --piece-length --dry-run --dry-run=false --truncate-console-readout --truncate-console-readout=false --save-not-found --save-not-found=false --async-dns-server --bt-max-peers --max-overall-upload-limit --rpc-user --optimize-concurrent-downloads --optimize-concurrent-downloads=true --optimize-concurrent-downloads=false --optimize-concurrent-downloads=A:B --dir --split --on-download-pause --auto-file-renaming --auto-file-renaming=false --http-proxy --save-session-interval --daemon --daemon=false --https-proxy --min-tls-version --save-cookies --out --rlimit-nofile --max-http-forbidden --max-file-not-found --on-download-stop --certificate --bt-min-crypto-level --remove-control-file --remove-control-file=false --enable-dht --enable-dht=false --file-allocation --follow-metalink --on-bt-download-complete --ftp-proxy --show-files --show-files=false --timeout --bt-hash-check-seed --bt-hash-check-seed=false --ftp-pasv --ftp-pasv=false --check-certificate --check-certificate=false --always-resume --always-resume=false --load-cookies --bt-remove-unselected-file --bt-remove-unselected-file=false --bt-stop-timeout --version --max-concurrent-downloads --quiet --quiet=false --max-download-result --content-disposition-default-utf8 --content-disposition-default-utf8=false --max-resume-failure-tries --header --rpc-listen-all --rpc-listen-all=false --all-proxy-user --server-stat-if --dht-file-path6 --save-session --bt-external-ip --max-tries --conditional-get --conditional-get=false --ftp-reuse-connection --ftp-reuse-connection=false --gid --dscp --max-download-limit --bt-prioritize-piece --check-integrity --check-integrity=false --log-level --remote-time --remote-time=false --uri-selector --rpc-listen-port --index-out --bt-tracker --referer --ssh-host-key-md --console-log-level --connect-timeout --stream-piece-selector --dht-message-timeout --select-file --download-result --disable-ipv6 --disable-ipv6=false --rpc-max-request-size --rpc-passwd --stop-with-process --https-proxy-passwd --continue --continue=false --no-file-allocation-limit --netrc-path --ftp-proxy-user --enable-color --enable-color=false --metalink-location --allow-piece-length-change --allow-piece-length-change=false --max-connection-per-server --no-conf --no-conf=false --rpc-certificate --metalink-os --enable-http-pipelining --enable-http-pipelining=false --http-passwd --user-agent --enable-dht6 --enable-dht6=false --dht-file-path --http-auth-challenge --http-auth-challenge=false --bt-enable-hook-after-hash-check --bt-enable-hook-after-hash-check=false --peer-id-prefix --max-mmap-limit --enable-mmap --enable-mmap=false --use-head --use-head=false --bt-require-crypto --bt-require-crypto=false --show-console-readout --show-console-readout=false --conf-path --log --no-proxy --dht-entry-point --dht-listen-port --http-user --retry-wait --on-download-complete --help --help=#basic --help=#advanced --help=#http --help=#https --help=#ftp --help=#metalink --help=#bittorrent --help=#cookie --help=#hook --help=#file --help=#rpc --help=#checksum --help=#experimental --help=#deprecated --help=#help --help=#all --max-overall-download-limit --event-poll --http-accept-gzip --http-accept-gzip=false --metalink-file --all-proxy --disk-cache --hash-check-only --hash-check-only=false --dht-listen-addr6 --human-readable --human-readable=false --ftp-user --all-proxy-passwd --bt-exclude-tracker --pause-metadata --pause-metadata=false --http-proxy-user --deferred-input --deferred-input=false --metalink-enable-unique-protocol --metalink-enable-unique-protocol=false --stop --peer-agent --max-upload-limit --multiple-interface --realtime-chunk-checksum --realtime-chunk-checksum=false --http-no-cache --http-no-cache=false --ca-certificate --bt-force-encryption --bt-force-encryption=false --bt-save-metadata --bt-save-metadata=false --seed-ratio --follow-torrent --pause --pause=false --checksum --auto-save-interval --async-dns --async-dns=false --bt-enable-lpd --bt-enable-lpd=false --parameterized-uri --parameterized-uri=false --ftp-proxy-passwd --enable-rpc --enable-rpc=false --min-split-size --bt-seed-unverified --bt-seed-unverified=false --input-file --interface --enable-async-dns6 --enable-async-dns6=false --reuse-uri --reuse-uri=false --socket-recv-buffer-size --bt-request-peer-speed-limit --on-download-error --bt-metadata-only --bt-metadata-only=false ' -- "$cur" ) )
-             ;;
-         *)
-             _filedir '@(torrent|meta4|metalink|text|txt|list|lst)'
-diff --git a/doc/manual-src/en/aria2c.rst b/doc/manual-src/en/aria2c.rst
-index 6722e0d2..3badb2db 100644
---- a/doc/manual-src/en/aria2c.rst
-+++ b/doc/manual-src/en/aria2c.rst
-@@ -185,6 +185,17 @@ HTTP/FTP/SFTP Options
-   The maximum number of connections to one server for each download.
-   Default: ``1``
-
-+.. option:: --max-http-forbidden=<NUM>
-+
-+  If aria2 receives "forbidden" status from the remote HTTP
-+  servers NUM times without getting a single byte, then force the
-+  download to fail. Specify ``0`` to disable this option. This options
-+  is effective only when using HTTP servers.  The number of retry
-+  attempt is counted toward :option:`--max-tries`, so it should be
-+  configured too.
-+
-+  Default: ``0``
-+
- .. option:: --max-file-not-found=<NUM>
-
-   If aria2 receives "file not found" status from the remote HTTP/FTP
-@@ -1927,6 +1938,13 @@ based on the last error encountered.
- 32
-   If checksum validation failed.
-
-+101
-+   If resource was forbidden.
-+
-+102
-+  If aria2 saw the specified number of "resource was forbidden" error.
-+  See :option:`--max-http-forbidden` option.
-+
- .. note::
-
-   An error occurred in a finished download will not be reported
-@@ -2185,6 +2203,7 @@ of URIs. These optional lines must start with white space(s).
-   * :option:`lowest-speed-limit <--lowest-speed-limit>`
-   * :option:`max-connection-per-server <-x>`
-   * :option:`max-download-limit <--max-download-limit>`
-+  * :option:`max-http-forbidden <--max-http-forbidden>`
-   * :option:`max-file-not-found <--max-file-not-found>`
-   * :option:`max-mmap-limit <--max-mmap-limit>`
-   * :option:`max-resume-failure-tries <--max-resume-failure-tries>`
-diff --git a/doc/manual-src/pt/aria2c.rst b/doc/manual-src/pt/aria2c.rst
-index 668a3331..945efb3b 100644
---- a/doc/manual-src/pt/aria2c.rst
-+++ b/doc/manual-src/pt/aria2c.rst
-@@ -189,6 +189,16 @@ Opções HTTP / FTP
-   O número máximo de conexões para um servidor em cada download.
-   Padrão: ``1``
-
-+
-+.. option:: --max-http-forbidden=<NÚMERO>
-+
-+  Se aria2 recebe çódigo de retorno "proibido" de um servidor
-+  remoto de HTTP um NÚMERO de vezes sem obter nenhum byte, então o
-+  download é forçado a falhar.
-+  Especificar ``0`` para desabilitar esta opção. Esta opção só é válida
-+  para servidores HTTP.
-+  Padrão: ``0``
-+
- .. option:: --max-file-not-found=<NÚMERO>
-
-   Se aria2 recebe çódigo de retorno "arquivo não encontrado" de um servidor
-@@ -1670,6 +1680,13 @@ retorno ou saída com base no último erro encontrado.
- 30
-   Se aria2 não pode passar uma requisição JSON-RPC.
-
-+101
-+   Se o recurso foi proibido.
-+
-+102
-+  Se aria2 viu o número especificado de erro "recurso foi proibido".
-+  Ver opção :option:`--max-http-forbidden` option.
-+
- .. note::
-
-   Um erro ocorrido em um download completado não será reportado como um
-@@ -1898,6 +1915,7 @@ URI. Estas linhas opcionais precisam iniciar com um ou mais espaços.
-   * :option:`lowest-speed-limit <--lowest-speed-limit>`
-   * :option:`max-connection-per-server <-x>`
-   * :option:`max-download-limit <--max-download-limit>`
-+  * :option:`max-http-forbidden <--max-http-forbidden>`
-   * :option:`max-file-not-found <--max-file-not-found>`
-   * :option:`max-resume-failure-tries <--max-resume-failure-tries>`
-   * :option:`max-tries <-m>`
-diff --git a/doc/manual-src/ru/Makefile.am b/doc/manual-src/ru/Makefile.am
-index cdebe6f3..18ec0bac 100644
---- a/doc/manual-src/ru/Makefile.am
-+++ b/doc/manual-src/ru/Makefile.am
-@@ -126,7 +126,6 @@ text:
-
- man:
- 	$(SPHINXBUILD) -b man $(ALLSPHINXOPTS) $(BUILDDIR)/man
--	sed -i -e '1i .\\" -*- mode: troff; coding: utf-8 -*-' $(BUILDDIR)/man/aria2c.1
- 	@echo
- 	@echo "Build finished. The manual pages are in $(BUILDDIR)/man."
-
-diff --git a/doc/manual-src/ru/aria2c.rst b/doc/manual-src/ru/aria2c.rst
-index ebebe4f3..272fc633 100644
---- a/doc/manual-src/ru/aria2c.rst
-+++ b/doc/manual-src/ru/aria2c.rst
-@@ -194,6 +194,18 @@ HTTP(S)/FTP, они тут же могут выгружаться в BitTorrent-
-   загрузки.
-   По умолчанию: ``1``
-
-+.. option:: --max-http-forbidden=<NUM>
-+
-+  Если aria2 получает статус "forbidden" (найден) с
-+  удаленных HTTP-серверов NUM раз без получения, хотя бы одного байта,
-+  тогда принудительно отказывается от загрузки. Укажите ``0``, чтобы
-+  отключить этот параметр. Этот параметр действенен только, когда
-+  используются HTTP-серверы. Количество повторных попыток засчитывается в
-+  :option:`--max-tries`, таким образом, этот параметр также должен быть
-+  сконфигурирован.
-+
-+  По умолчанию: ``0``
-+
- .. option:: --max-file-not-found=<NUM>
-
-   Если aria2 получает статус "file not found" (файл не найден) с
-@@ -2035,6 +2047,13 @@ Content-Disposition.
- 32
-   Если проверка контрольной суммы не удалась.
-
-+101
-+  Если ресурс был запрещен.
-+
-+102
-+  Если aria2 увидела указанное количество «ресурсов было запрещено», ошибка.
-+  Смотрите параметр :option:`--max-http-forbidden` option.
-+
- .. note::
-
-   Ошибка, произошедшая в завершенной загрузке, не будет передана как код
-@@ -2297,6 +2316,7 @@ URI. Эти дополнительные строки должны начина
-   * :option:`lowest-speed-limit <--lowest-speed-limit>`
-   * :option:`max-connection-per-server <-x>`
-   * :option:`max-download-limit <--max-download-limit>`
-+  * :option:`max-http-forbidden <--max-http-forbidden>`
-   * :option:`max-file-not-found <--max-file-not-found>`
-   * :option:`max-mmap-limit <--max-mmap-limit>`
-   * :option:`max-resume-failure-tries <--max-resume-failure-tries>`
-diff --git a/doc/xmlrpc/aria2rpc b/doc/xmlrpc/aria2rpc
-index f52b7f6a..a9eb018f 100755
---- a/doc/xmlrpc/aria2rpc
-+++ b/doc/xmlrpc/aria2rpc
-@@ -43,6 +43,7 @@ OptionParser.new do |opt|
-     options["dry-run"]=val||"true"
+diff -uNr a/src/HttpResponseCommand.cc b/src/HttpResponseCommand.cc
+--- a/src/HttpResponseCommand.cc	2019-10-06 09:17:42.000000000 +0800
++++ b/src/HttpResponseCommand.cc	2020-04-27 18:30:10.000000000 +0800
+@@ -239,6 +239,9 @@
    }
-   opt.on("--lowest-speed-limit SPEED"){|val| options["lowest-speed-limit"]=val}
-+  opt.on("--max-http-forbidden NUM"){|val| options["max-http-forbidden"]=val}
-   opt.on("--max-file-not-found NUM"){|val| options["max-file-not-found"]=val}
-   opt.on("-m","--max-tries N"){|val| options["max-tries"]=val}
-   opt.on("--no-proxy DOMAINS"){|val| options["no-proxy"]=val}
-diff --git a/src/HttpResponseCommand.cc b/src/HttpResponseCommand.cc
-index 6009dc2f..1df02b09 100644
---- a/src/HttpResponseCommand.cc
-+++ b/src/HttpResponseCommand.cc
-@@ -239,6 +239,9 @@ bool HttpResponseCommand::executeInternal()
-   }
-
+ 
    if (statusCode >= 300) {
 +    if (statusCode == 403) {
 +      grp->increaseAndValidateHttpForbidden();
@@ -199,11 +29,10 @@ index 6009dc2f..1df02b09 100644
      if (statusCode == 404) {
        grp->increaseAndValidateFileNotFoundCount();
      }
-diff --git a/src/HttpSkipResponseCommand.cc b/src/HttpSkipResponseCommand.cc
-index a722d774..9aed0623 100644
---- a/src/HttpSkipResponseCommand.cc
-+++ b/src/HttpSkipResponseCommand.cc
-@@ -213,6 +213,14 @@ bool HttpSkipResponseCommand::processResponse()
+diff -uNr a/src/HttpSkipResponseCommand.cc b/src/HttpSkipResponseCommand.cc
+--- a/src/HttpSkipResponseCommand.cc	2019-10-06 09:17:42.000000000 +0800
++++ b/src/HttpSkipResponseCommand.cc	2020-04-27 18:30:10.000000000 +0800
+@@ -213,6 +213,14 @@
          return prepareForRetry(0);
        }
        throw DL_ABORT_EX2(EX_AUTH_FAILED, error_code::HTTP_AUTH_FAILED);
@@ -218,11 +47,18 @@ index a722d774..9aed0623 100644
      case 404:
        if (getOption()->getAsInt(PREF_MAX_FILE_NOT_FOUND) == 0) {
          throw DL_ABORT_EX2(MSG_RESOURCE_NOT_FOUND,
-diff --git a/src/OptionHandlerFactory.cc b/src/OptionHandlerFactory.cc
-index 4339c912..a8b2a7c1 100644
---- a/src/OptionHandlerFactory.cc
-+++ b/src/OptionHandlerFactory.cc
-@@ -440,7 +440,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
+@@ -220,6 +228,7 @@
+       }
+       throw DL_RETRY_EX2(MSG_RESOURCE_NOT_FOUND,
+                          error_code::RESOURCE_NOT_FOUND);
++    case 500:
+     case 502:
+     case 503:
+       // Only retry if pretry-wait > 0. Hammering 'busy' server is not
+diff -uNr a/src/OptionHandlerFactory.cc b/src/OptionHandlerFactory.cc
+--- a/src/OptionHandlerFactory.cc	2019-10-06 09:17:42.000000000 +0800
++++ b/src/OptionHandlerFactory.cc	2020-04-27 18:30:10.000000000 +0800
+@@ -440,7 +440,7 @@
    {
      OptionHandler* op(new NumberOptionHandler(PREF_MAX_CONNECTION_PER_SERVER,
                                                TEXT_MAX_CONNECTION_PER_SERVER,
@@ -231,7 +67,7 @@ index 4339c912..a8b2a7c1 100644
      op->addTag(TAG_BASIC);
      op->addTag(TAG_FTP);
      op->addTag(TAG_HTTP);
-@@ -501,7 +501,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
+@@ -501,7 +501,7 @@
    }
    {
      OptionHandler* op(new UnitNumberOptionHandler(
@@ -240,11 +76,10 @@ index 4339c912..a8b2a7c1 100644
      op->addTag(TAG_BASIC);
      op->addTag(TAG_FTP);
      op->addTag(TAG_HTTP);
-@@ -861,6 +861,16 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
-     op->setChangeOptionForReserved(true);
+@@ -862,8 +862,18 @@
      handlers.push_back(op);
    }
-+  {
+   {
 +    OptionHandler* op(new NumberOptionHandler(PREF_MAX_HTTP_FORBIDDEN,
 +                                              TEXT_MAX_HTTP_FORBIDDEN, "0", -1));
 +    op->addTag(TAG_ADVANCED);
@@ -254,10 +89,14 @@ index 4339c912..a8b2a7c1 100644
 +    op->setChangeOptionForReserved(true);
 +    handlers.push_back(op);
 +  }
-   {
++  {
      OptionHandler* op(new NumberOptionHandler(PREF_MAX_FILE_NOT_FOUND,
-                                               TEXT_MAX_FILE_NOT_FOUND, "0", 0));
-@@ -971,7 +981,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
+-                                              TEXT_MAX_FILE_NOT_FOUND, "0", 0));
++                                              TEXT_MAX_FILE_NOT_FOUND, "0", -1));
+     op->addTag(TAG_FTP);
+     op->addTag(TAG_HTTP);
+     op->setInitialOption(true);
+@@ -971,7 +981,7 @@
    }
    {
      OptionHandler* op(
@@ -266,11 +105,10 @@ index 4339c912..a8b2a7c1 100644
      op->addTag(TAG_BASIC);
      op->addTag(TAG_FTP);
      op->addTag(TAG_HTTP);
-diff --git a/src/RequestGroup.cc b/src/RequestGroup.cc
-index 379029ec..e64c1487 100644
---- a/src/RequestGroup.cc
-+++ b/src/RequestGroup.cc
-@@ -139,6 +139,7 @@ RequestGroup::RequestGroup(const std::shared_ptr<GroupId>& gid,
+diff -uNr a/src/RequestGroup.cc b/src/RequestGroup.cc
+--- a/src/RequestGroup.cc	2019-10-06 09:17:42.000000000 +0800
++++ b/src/RequestGroup.cc	2020-04-27 18:30:10.000000000 +0800
+@@ -139,6 +139,7 @@
        numStreamConnection_(0),
        numStreamCommand_(0),
        numCommand_(0),
@@ -278,7 +116,7 @@ index 379029ec..e64c1487 100644
        fileNotFoundCount_(0),
        maxDownloadSpeedLimit_(option->getAsInt(PREF_MAX_DOWNLOAD_LIMIT)),
        maxUploadSpeedLimit_(option->getAsInt(PREF_MAX_UPLOAD_LIMIT)),
-@@ -1255,6 +1256,17 @@ void RequestGroup::updateLastModifiedTime(const Time& time)
+@@ -1255,6 +1256,17 @@
      lastModifiedTime_ = time;
    }
  }
@@ -293,437 +131,34 @@ index 379029ec..e64c1487 100644
 +        error_code::MAX_HTTP_FORBIDDEN);
 +  }
 +}
-
+ 
  void RequestGroup::increaseAndValidateFileNotFoundCount()
  {
-diff --git a/src/RequestGroup.h b/src/RequestGroup.h
-index 6698f93d..3c2ac9cf 100644
---- a/src/RequestGroup.h
-+++ b/src/RequestGroup.h
-@@ -155,6 +155,8 @@ private:
-
+diff -uNr a/src/RequestGroup.h b/src/RequestGroup.h
+--- a/src/RequestGroup.h	2019-10-06 09:17:42.000000000 +0800
++++ b/src/RequestGroup.h	2020-04-27 18:30:10.000000000 +0800
+@@ -155,6 +155,8 @@
+ 
    int numCommand_;
-
+ 
 +  int httpForbiddenCount_;
 +
    int fileNotFoundCount_;
-
+ 
    int maxDownloadSpeedLimit_;
-@@ -414,6 +416,8 @@ public:
-
+@@ -414,6 +416,8 @@
+ 
    void updateLastModifiedTime(const Time& time);
-
+ 
 +  void increaseAndValidateHttpForbidden();
 +
    void increaseAndValidateFileNotFoundCount();
-
+ 
    // Just set inMemoryDownload flag true.
-diff --git a/src/error_code.h b/src/error_code.h
-index 0d268c45..2af3875f 100644
---- a/src/error_code.h
-+++ b/src/error_code.h
-@@ -76,6 +76,8 @@ enum Value {
-   JSON_PARSE_ERROR = 30,
-   REMOVED = 31,
-   CHECKSUM_ERROR = 32,
-+  RESOURCE_FORBIDDEN= 101,
-+  MAX_HTTP_FORBIDDEN=102,
- };
-
- } // namespace error_code
-diff --git a/src/message.h b/src/message.h
-index 4705d7fb..b28d4a77 100644
---- a/src/message.h
-+++ b/src/message.h
-@@ -144,6 +144,7 @@
- #define MSG_VERIFICATION_FAILED _("Checksum error detected. file=%s")
- #define MSG_INCOMPLETE_RANGE _("Incomplete range specified. %s")
- #define MSG_STRING_INTEGER_CONVERSION_FAILURE _("Failed to convert string into value: %s")
-+#define MSG_RESOURCE_FORBIDDEN _("Resource forbidden")
- #define MSG_RESOURCE_NOT_FOUND _("Resource not found")
- #define MSG_FILE_RENAMED _("File already exists. Renamed to %s.")
- #define MSG_CANNOT_PARSE_METALINK _("Cannot parse metalink XML file. XML may be malformed.")
-diff --git a/src/prefs.cc b/src/prefs.cc
-index 937e927d..5d2554d6 100644
---- a/src/prefs.cc
-+++ b/src/prefs.cc
-@@ -262,6 +262,8 @@ PrefPtr PREF_SERVER_STAT_OF = makePref("server-stat-of");
- // value: true | false
- PrefPtr PREF_REMOTE_TIME = makePref("remote-time");
- // value: 1*digit
-+PrefPtr PREF_MAX_HTTP_FORBIDDEN = makePref("max-http-forbidden");
-+// value: 1*digit
- PrefPtr PREF_MAX_FILE_NOT_FOUND = makePref("max-file-not-found");
- // value: epoll | select
- PrefPtr PREF_EVENT_POLL = makePref("event-poll");
-diff --git a/src/prefs.h b/src/prefs.h
-index e1f83978..6a199404 100644
---- a/src/prefs.h
-+++ b/src/prefs.h
-@@ -215,6 +215,8 @@ extern PrefPtr PREF_SERVER_STAT_OF;
- // value: true | false
- extern PrefPtr PREF_REMOTE_TIME;
- // value: 1*digit
-+extern PrefPtr PREF_MAX_HTTP_FORBIDDEN;
-+// value: 1*digit
- extern PrefPtr PREF_MAX_FILE_NOT_FOUND;
- // value: epoll | select
- extern PrefPtr PREF_EVENT_POLL;
-diff --git a/src/usage_text.h b/src/usage_text.h
-index d73b50d9..f890f7d4 100644
---- a/src/usage_text.h
-+++ b/src/usage_text.h
-@@ -468,6 +468,15 @@
-     "                              connection to HTTP/FTP/proxy server. After the\n" \
-     "                              connection is established, this option makes no\n" \
-     "                              effect and --timeout option is used instead.")
-+#define TEXT_MAX_HTTP_FORBIDDEN                                         \
-+  _(" --max-http-forbidden=NUM     If aria2 receives `forbidden' status from the\n" \
-+    "                              remote HTTPservers NUM times without getting\n" \
-+    "                              a single byte, then force the download to fail.\n" \
-+    "                              Specify 0 to disable this option.\n" \
-+    "                              This options is effective only when using\n" \
-+    "                              HTTPservers. The number of retry attempt is\n" \
-+    "                              counted toward --max-tries, so it should be\n" \
-+    "                              configured too.")
- #define TEXT_MAX_FILE_NOT_FOUND                                         \
-   _(" --max-file-not-found=NUM     If aria2 receives `file not found' status from the\n" \
-     "                              remote HTTP/FTP servers NUM times without getting\n" \
-diff --git a/Makefile.in b/Makefile.in
-index c6aac63..41df3e3 100644
---- a/Makefile.in
-+++ b/Makefile.in
-@@ -435,7 +435,6 @@ pdfdir = @pdfdir@
- prefix = @prefix@
- program_transform_name = @program_transform_name@
- psdir = @psdir@
--runstatedir = @runstatedir@
- sbindir = @sbindir@
- sharedstatedir = @sharedstatedir@
- srcdir = @srcdir@
-diff --git a/deps/Makefile.in b/deps/Makefile.in
-index 34d60d8..77c66df 100644
---- a/deps/Makefile.in
-+++ b/deps/Makefile.in
-@@ -380,7 +380,6 @@ pdfdir = @pdfdir@
- prefix = @prefix@
- program_transform_name = @program_transform_name@
- psdir = @psdir@
--runstatedir = @runstatedir@
- sbindir = @sbindir@
- sharedstatedir = @sharedstatedir@
- srcdir = @srcdir@
-diff --git a/doc/Makefile.in b/doc/Makefile.in
-index 0a40fdf..d918349 100644
---- a/doc/Makefile.in
-+++ b/doc/Makefile.in
-@@ -415,7 +415,6 @@ pdfdir = @pdfdir@
- prefix = @prefix@
- program_transform_name = @program_transform_name@
- psdir = @psdir@
--runstatedir = @runstatedir@
- sbindir = @sbindir@
- sharedstatedir = @sharedstatedir@
- srcdir = @srcdir@
-diff --git a/doc/manual-src/Makefile.in b/doc/manual-src/Makefile.in
-index ca44a54..f725c84 100644
---- a/doc/manual-src/Makefile.in
-+++ b/doc/manual-src/Makefile.in
-@@ -380,7 +380,6 @@ pdfdir = @pdfdir@
- prefix = @prefix@
- program_transform_name = @program_transform_name@
- psdir = @psdir@
--runstatedir = @runstatedir@
- sbindir = @sbindir@
- sharedstatedir = @sharedstatedir@
- srcdir = @srcdir@
-diff --git a/doc/manual-src/en/Makefile.in b/doc/manual-src/en/Makefile.in
-index 17c7266..7a47463 100644
---- a/doc/manual-src/en/Makefile.in
-+++ b/doc/manual-src/en/Makefile.in
-@@ -351,7 +351,6 @@ pdfdir = @pdfdir@
- prefix = @prefix@
- program_transform_name = @program_transform_name@
- psdir = @psdir@
--runstatedir = @runstatedir@
- sbindir = @sbindir@
- sharedstatedir = @sharedstatedir@
- srcdir = @srcdir@
-diff --git a/doc/manual-src/pt/Makefile.in b/doc/manual-src/pt/Makefile.in
-index 7f734a5..9b22809 100644
---- a/doc/manual-src/pt/Makefile.in
-+++ b/doc/manual-src/pt/Makefile.in
-@@ -353,7 +353,6 @@ pdfdir = @pdfdir@
- prefix = @prefix@
- program_transform_name = @program_transform_name@
- psdir = @psdir@
--runstatedir = @runstatedir@
- sbindir = @sbindir@
- sharedstatedir = @sharedstatedir@
- srcdir = @srcdir@
-diff --git a/doc/manual-src/ru/Makefile.in b/doc/manual-src/ru/Makefile.in
-index 2f31c1a..94a96ea 100644
---- a/doc/manual-src/ru/Makefile.in
-+++ b/doc/manual-src/ru/Makefile.in
-@@ -353,7 +353,6 @@ pdfdir = @pdfdir@
- prefix = @prefix@
- program_transform_name = @program_transform_name@
- psdir = @psdir@
--runstatedir = @runstatedir@
- sbindir = @sbindir@
- sharedstatedir = @sharedstatedir@
- srcdir = @srcdir@
-@@ -729,7 +728,6 @@ text:
-
- man:
- 	$(SPHINXBUILD) -b man $(ALLSPHINXOPTS) $(BUILDDIR)/man
--	sed -i -e '1i .\\" -*- mode: troff; coding: utf-8 -*-' $(BUILDDIR)/man/aria2c.1
- 	@echo
- 	@echo "Build finished. The manual pages are in $(BUILDDIR)/man."
-
-diff --git a/lib/Makefile.in b/lib/Makefile.in
-index a4c9d19..a8a0f4f 100644
---- a/lib/Makefile.in
-+++ b/lib/Makefile.in
-@@ -320,7 +320,6 @@ pdfdir = @pdfdir@
- prefix = @prefix@
- program_transform_name = @program_transform_name@
- psdir = @psdir@
--runstatedir = @runstatedir@
- sbindir = @sbindir@
- sharedstatedir = @sharedstatedir@
- srcdir = @srcdir@
-diff --git a/src/Makefile.in b/src/Makefile.in
-index 0929012..16fa625 100644
---- a/src/Makefile.in
-+++ b/src/Makefile.in
-@@ -1429,7 +1429,6 @@ pdfdir = @pdfdir@
- prefix = @prefix@
- program_transform_name = @program_transform_name@
- psdir = @psdir@
--runstatedir = @runstatedir@
- sbindir = @sbindir@
- sharedstatedir = @sharedstatedir@
- srcdir = @srcdir@
-diff --git a/src/includes/Makefile.in b/src/includes/Makefile.in
-index f05efbd..a607a7c 100644
---- a/src/includes/Makefile.in
-+++ b/src/includes/Makefile.in
-@@ -370,7 +370,6 @@ pdfdir = @pdfdir@
- prefix = @prefix@
- program_transform_name = @program_transform_name@
- psdir = @psdir@
--runstatedir = @runstatedir@
- sbindir = @sbindir@
- sharedstatedir = @sharedstatedir@
- srcdir = @srcdir@
-diff --git a/test/Makefile.in b/test/Makefile.in
-index d95da8f..4a6f116 100644
---- a/test/Makefile.in
-+++ b/test/Makefile.in
-@@ -963,7 +963,6 @@ pdfdir = @pdfdir@
- prefix = @prefix@
- program_transform_name = @program_transform_name@
- psdir = @psdir@
--runstatedir = @runstatedir@
- sbindir = @sbindir@
- sharedstatedir = @sharedstatedir@
- srcdir = @srcdir@
-diff --git a/doc/manual-src/en/_build/man/aria2c.1 b/doc/manual-src/en/_build/man/aria2c.1
-index 1cf4c10..0f63692 100644
---- a/doc/manual-src/en/_build/man/aria2c.1
-+++ b/doc/manual-src/en/_build/man/aria2c.1
-@@ -1,6 +1,6 @@
- .\" Man page generated from reStructuredText.
- .
--.TH "ARIA2C" "1" "May 15, 2018" "1.34.0" "aria2"
-+.TH "ARIA2C" "1" "Aug 14, 2018" "1.34.0" "aria2"
- .SH NAME
- aria2c \- The ultra fast download utility
- .
-@@ -237,6 +237,18 @@ Default: \fB1\fP
- .UNINDENT
- .INDENT 0.0
- .TP
-+.B \-\-max\-http\-forbidden=<NUM>
-+If aria2 receives "forbidden" status from the remote HTTP
-+servers NUM times without getting a single byte, then force the
-+download to fail. Specify \fB0\fP to disable this option. This options
-+is effective only when using HTTP servers.  The number of retry
-+attempt is counted toward \fI\%\-\-max\-tries\fP, so it should be
-+configured too.
-+.sp
-+Default: \fB0\fP
-+.UNINDENT
-+.INDENT 0.0
-+.TP
- .B \-\-max\-file\-not\-found=<NUM>
- If aria2 receives "file not found" status from the remote HTTP/FTP
- servers NUM times without getting a single byte, then force the
-@@ -2251,6 +2263,13 @@ Reserved.  Not used.
- .TP
- .B 32
- If checksum validation failed.
-+.TP
-+.B 101
-+If resource was forbidden.
-+.TP
-+.B 102
-+If aria2 saw the specified number of "resource was forbidden" error.
-+See \fI\%\-\-max\-http\-forbidden\fP option.
- .UNINDENT
- .sp
- \fBNOTE:\fP
-@@ -2623,14 +2642,16 @@ of URIs. These optional lines must start with white space(s).
- .IP \(bu 2
- \fI\%max\-download\-limit\fP
- .IP \(bu 2
-+\fI\%max\-http\-forbidden\fP
-+.IP \(bu 2
- \fI\%max\-file\-not\-found\fP
- .IP \(bu 2
- \fI\%max\-mmap\-limit\fP
--.IP \(bu 2
--\fI\%max\-resume\-failure\-tries\fP
- .UNINDENT
- .INDENT 2.0
- .IP \(bu 2
-+\fI\%max\-resume\-failure\-tries\fP
-+.IP \(bu 2
- \fI\%max\-tries\fP
- .IP \(bu 2
- \fI\%max\-upload\-limit\fP
-diff --git a/doc/manual-src/pt/_build/man/aria2c.1 b/doc/manual-src/pt/_build/man/aria2c.1
-index f10dd1c..6346681 100644
---- a/doc/manual-src/pt/_build/man/aria2c.1
-+++ b/doc/manual-src/pt/_build/man/aria2c.1
-@@ -1,6 +1,6 @@
- .\" Man page generated from reStructuredText.
- .
--.TH "ARIA2C" "1" "mai 15, 2018" "1.34.0" "aria2"
-+.TH "ARIA2C" "1" "ago 14, 2018" "1.34.0" "aria2"
- .SH NAME
- aria2c \- Utilitário para download super ultra rápido
- .
-@@ -219,6 +219,16 @@ Padrão: \fB1\fP
- .UNINDENT
- .INDENT 0.0
- .TP
-+.B \-\-max\-http\-forbidden=<NÚMERO>
-+Se aria2 recebe çódigo de retorno "proibido" de um servidor
-+remoto de HTTP um NÚMERO de vezes sem obter nenhum byte, então o
-+download é forçado a falhar.
-+Especificar \fB0\fP para desabilitar esta opção. Esta opção só é válida
-+para servidores HTTP.
-+Padrão: \fB0\fP
-+.UNINDENT
-+.INDENT 0.0
-+.TP
- .B \-\-max\-file\-not\-found=<NÚMERO>
- Se aria2 recebe çódigo de retorno "arquivo não encontrado" de um servidor
- remoto de HTTP / FTP um NÚMERO de vezes sem obter nenhum byte, então o
-@@ -1894,6 +1904,13 @@ temporária ou manutenção.
- .TP
- .B 30
- Se aria2 não pode passar uma requisição JSON\-RPC.
-+.TP
-+.B 101
-+Se o recurso foi proibido.
-+.TP
-+.B 102
-+Se aria2 viu o número especificado de erro "recurso foi proibido".
-+Ver opção \fI\%\-\-max\-http\-forbidden\fP option.
- .UNINDENT
- .sp
- \fBNOTA:\fP
-@@ -2195,12 +2212,14 @@ URI. Estas linhas opcionais precisam iniciar com um ou mais espaços.
- .IP \(bu 2
- \fI\%max\-download\-limit\fP
- .IP \(bu 2
--\fI\%max\-file\-not\-found\fP
-+\fI\%max\-http\-forbidden\fP
- .IP \(bu 2
--\fI\%max\-resume\-failure\-tries\fP
-+\fI\%max\-file\-not\-found\fP
- .UNINDENT
- .INDENT 2.0
- .IP \(bu 2
-+\fI\%max\-resume\-failure\-tries\fP
-+.IP \(bu 2
- \fI\%max\-tries\fP
- .IP \(bu 2
- \fI\%max\-upload\-limit\fP
-diff --git a/doc/manual-src/ru/_build/man/aria2c.1 b/doc/manual-src/ru/_build/man/aria2c.1
-index 726b30c..70f05d8 100644
---- a/doc/manual-src/ru/_build/man/aria2c.1
-+++ b/doc/manual-src/ru/_build/man/aria2c.1
-@@ -1,7 +1,6 @@
--.\" -*- mode: troff; coding: utf-8 -*-
- .\" Man page generated from reStructuredText.
- .
--.TH "ARIA2C" "1" "мая 15, 2018" "1.34.0" "aria2"
-+.TH "ARIA2C" "1" "авг. 14, 2018" "1.34.0" "aria2"
- .SH NAME
- aria2c \- сверхбыстрая утилита загрузки
- .
-@@ -248,6 +247,19 @@ BitTorrent\-загрузки.
- .UNINDENT
- .INDENT 0.0
- .TP
-+.B \-\-max\-http\-forbidden=<NUM>
-+Если aria2 получает статус "forbidden" (найден) с
-+удаленных HTTP\-серверов NUM раз без получения, хотя бы одного байта,
-+тогда принудительно отказывается от загрузки. Укажите \fB0\fP, чтобы
-+отключить этот параметр. Этот параметр действенен только, когда
-+используются HTTP\-серверы. Количество повторных попыток засчитывается в
-+\fI\%\-\-max\-tries\fP, таким образом, этот параметр также должен быть
-+сконфигурирован.
-+.sp
-+По умолчанию: \fB0\fP
-+.UNINDENT
-+.INDENT 0.0
-+.TP
- .B \-\-max\-file\-not\-found=<NUM>
- Если aria2 получает статус "file not found" (файл не найден) с
- удаленных HTTP/FTP\-серверов NUM раз без получения, хотя бы одного байта,
-@@ -2360,6 +2372,13 @@ aria2.
- .TP
- .B 32
- Если проверка контрольной суммы не удалась.
-+.TP
-+.B 101
-+Если ресурс был запрещен.
-+.TP
-+.B 102
-+Если aria2 увидела указанное количество «ресурсов было запрещено», ошибка.
-+Смотрите параметр \fI\%\-\-max\-http\-forbidden\fP option.
- .UNINDENT
- .sp
- \fBПРИМЕЧАНИЕ:\fP
-@@ -2736,14 +2755,16 @@ URI. Эти дополнительные строки должны начина
- .IP \(bu 2
- \fI\%max\-download\-limit\fP
- .IP \(bu 2
-+\fI\%max\-http\-forbidden\fP
-+.IP \(bu 2
- \fI\%max\-file\-not\-found\fP
- .IP \(bu 2
- \fI\%max\-mmap\-limit\fP
--.IP \(bu 2
--\fI\%max\-resume\-failure\-tries\fP
- .UNINDENT
- .INDENT 2.0
- .IP \(bu 2
-+\fI\%max\-resume\-failure\-tries\fP
-+.IP \(bu 2
- \fI\%max\-tries\fP
- .IP \(bu 2
- \fI\%max\-upload\-limit\fP
-diff --git a/src/bittorrent_helper.cc b/src/bittorrent_helper.cc
-index c0b1f60..0a0a631 100644
---- a/src/bittorrent_helper.cc
-+++ b/src/bittorrent_helper.cc
-@@ -216,6 +216,8 @@ void extractFileEntries(const std::shared_ptr<DownloadContext>& ctx,
+diff -uNr a/src/bittorrent_helper.cc b/src/bittorrent_helper.cc
+--- a/src/bittorrent_helper.cc	2019-10-06 09:17:42.000000000 +0800
++++ b/src/bittorrent_helper.cc	2020-04-27 18:30:10.000000000 +0800
+@@ -216,6 +216,8 @@
      fileEntries.reserve(filesList->size());
      int64_t length = 0;
      int64_t offset = 0;
@@ -732,13 +167,17 @@ index c0b1f60..0a0a631 100644
      // multi-file mode
      torrent->mode = BT_FILE_MODE_MULTI;
      for (auto& f : *filesList) {
-@@ -293,7 +295,23 @@ void extractFileEntries(const std::shared_ptr<DownloadContext>& ctx,
+@@ -293,7 +295,27 @@
        fileEntry->setSuffixPath(suffixPath);
        fileEntry->setMaxConnectionPerServer(maxConn);
        fileEntries.push_back(fileEntry);
 +
 +      std::string filename = strjoin(pathelem.end()-1, pathelem.end(),' ',std::ptr_fun(util::encodeNonUtf8));
-+      if( filename.find_first_of("_____padding_file_")!=std::string::npos && filename.find("BitComet")!=std::string::npos  ){
++      if( filename.find_first_of("_____padding_file_")!=std::string::npos && filename.find("BitComet")!=std::string::npos ){
++          A2_LOG_NOTICE(fmt("ignoring file: %s",filename.c_str()));
++      }else if( filename.find_first_of("RARBG.txt")!=std::string::npos ){
++          A2_LOG_NOTICE(fmt("ignoring file: %s",filename.c_str()) );
++      }else if( filename.find_first_of("RARBG_DO_NOT_MIRROR.exe")!=std::string::npos ){
 +          A2_LOG_NOTICE(fmt("ignoring file: %s",filename.c_str()));
 +      }else{
 +          selectedFileIndex += std::to_string(fileIndex)+",";
@@ -756,18 +195,83 @@ index c0b1f60..0a0a631 100644
      }
    }
    else {
-diff --git a/src/bittorrent_helper.h b/src/bittorrent_helper.h
-index a888601..b9ca4bd 100644
---- a/src/bittorrent_helper.h
-+++ b/src/bittorrent_helper.h
+diff -uNr a/src/bittorrent_helper.h b/src/bittorrent_helper.h
+--- a/src/bittorrent_helper.h	2019-10-06 09:17:42.000000000 +0800
++++ b/src/bittorrent_helper.h	2020-04-27 18:30:11.000000000 +0800
 @@ -50,6 +50,7 @@
  #include "util.h"
  #include "DownloadContext.h"
  #include "TimeA2.h"
 +#include "LogFactory.h"
-
+ 
  namespace aria2 {
-
+ 
+diff -uNr a/src/error_code.h b/src/error_code.h
+--- a/src/error_code.h	2019-10-06 09:17:42.000000000 +0800
++++ b/src/error_code.h	2020-04-27 18:30:10.000000000 +0800
+@@ -76,6 +76,8 @@
+   JSON_PARSE_ERROR = 30,
+   REMOVED = 31,
+   CHECKSUM_ERROR = 32,
++  RESOURCE_FORBIDDEN= 101,
++  MAX_HTTP_FORBIDDEN=102,
+ };
+ 
+ } // namespace error_code
+diff -uNr a/src/message.h b/src/message.h
+--- a/src/message.h	2019-10-06 09:17:42.000000000 +0800
++++ b/src/message.h	2020-04-27 18:30:10.000000000 +0800
+@@ -144,6 +144,7 @@
+ #define MSG_VERIFICATION_FAILED _("Checksum error detected. file=%s")
+ #define MSG_INCOMPLETE_RANGE _("Incomplete range specified. %s")
+ #define MSG_STRING_INTEGER_CONVERSION_FAILURE _("Failed to convert string into value: %s")
++#define MSG_RESOURCE_FORBIDDEN _("Resource forbidden")
+ #define MSG_RESOURCE_NOT_FOUND _("Resource not found")
+ #define MSG_FILE_RENAMED _("File already exists. Renamed to %s.")
+ #define MSG_CANNOT_PARSE_METALINK _("Cannot parse metalink XML file. XML may be malformed.")
+diff -uNr a/src/prefs.cc b/src/prefs.cc
+--- a/src/prefs.cc	2019-10-06 09:17:42.000000000 +0800
++++ b/src/prefs.cc	2020-04-27 18:30:10.000000000 +0800
+@@ -261,6 +261,8 @@
+ // value: true | false
+ PrefPtr PREF_REMOTE_TIME = makePref("remote-time");
+ // value: 1*digit
++PrefPtr PREF_MAX_HTTP_FORBIDDEN = makePref("max-http-forbidden");
++// value: 1*digit
+ PrefPtr PREF_MAX_FILE_NOT_FOUND = makePref("max-file-not-found");
+ // value: epoll | select
+ PrefPtr PREF_EVENT_POLL = makePref("event-poll");
+diff -uNr a/src/prefs.h b/src/prefs.h
+--- a/src/prefs.h	2019-10-06 09:17:42.000000000 +0800
++++ b/src/prefs.h	2020-04-27 18:30:10.000000000 +0800
+@@ -214,6 +214,8 @@
+ // value: true | false
+ extern PrefPtr PREF_REMOTE_TIME;
+ // value: 1*digit
++extern PrefPtr PREF_MAX_HTTP_FORBIDDEN;
++// value: 1*digit
+ extern PrefPtr PREF_MAX_FILE_NOT_FOUND;
+ // value: epoll | select
+ extern PrefPtr PREF_EVENT_POLL;
+diff -uNr a/src/usage_text.h b/src/usage_text.h
+--- a/src/usage_text.h	2019-10-06 09:17:42.000000000 +0800
++++ b/src/usage_text.h	2020-04-27 18:30:10.000000000 +0800
+@@ -468,6 +468,15 @@
+     "                              connection to HTTP/FTP/proxy server. After the\n" \
+     "                              connection is established, this option makes no\n" \
+     "                              effect and --timeout option is used instead.")
++#define TEXT_MAX_HTTP_FORBIDDEN                                         \
++  _(" --max-http-forbidden=NUM     If aria2 receives `forbidden' status from the\n" \
++    "                              remote HTTPservers NUM times without getting\n" \
++    "                              a single byte, then force the download to fail.\n" \
++    "                              Specify 0 to disable this option.\n" \
++    "                              This options is effective only when using\n" \
++    "                              HTTPservers. The number of retry attempt is\n" \
++    "                              counted toward --max-tries, so it should be\n" \
++    "                              configured too.")
+ #define TEXT_MAX_FILE_NOT_FOUND                                         \
+   _(" --max-file-not-found=NUM     If aria2 receives `file not found' status from the\n" \
+     "                              remote HTTP/FTP servers NUM times without getting\n" \
 
 EOF
 
