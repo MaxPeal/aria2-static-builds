@@ -24,10 +24,10 @@ CXX_COMPILER="g++"
 
 ## DEPENDENCES ##
 ZLIB=http://sourceforge.net/projects/libpng/files/zlib/1.2.11/zlib-1.2.11.tar.gz
-OPENSSL=http://www.openssl.org/source/openssl-1.1.1d.tar.gz
+OPENSSL=http://www.openssl.org/source/openssl-1.1.1g.tar.gz
 EXPAT=https://github.com/libexpat/libexpat/releases/download/R_2_2_9/expat-2.2.9.tar.bz2
-SQLITE3=https://sqlite.org/2019/sqlite-autoconf-3300100.tar.gz
-C_ARES=http://c-ares.haxx.se/download/c-ares-1.15.0.tar.gz
+SQLITE3=https://sqlite.org/2020/sqlite-autoconf-3310100.tar.gz
+C_ARES=http://c-ares.haxx.se/download/c-ares-1.16.0.tar.gz
 SSH2=https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
 
 ## CONFIG ##
@@ -55,18 +55,18 @@ cd $BUILD_DIRECTORY
 #
  # c-ares build
   cd ..
-  [ ! -f c-ares-1.15.0.tar.gz ] && $DOWNLOADER $C_ARES
-  tar zxvf c-ares-1.15.0.tar.gz
-  cd c-ares-1.15.0/
+  [ ! -f c-ares-1.16.0.tar.gz ] && $DOWNLOADER $C_ARES
+  tar zxvf c-ares-1.16.0.tar.gz
+  cd c-ares-1.16.0/
   PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig/ LD_LIBRARY_PATH=$PREFIX/lib/ CC="$C_COMPILER" CXX="$CXX_COMPILER" ./configure --prefix=$PREFIX --enable-static --disable-shared
   make
   make install
 #
  # Openssl build
   cd ..
-  [ ! -f openssl-1.1.1d.tar.gz ] && $DOWNLOADER $OPENSSL
-  tar zxvf openssl-1.1.1d.tar.gz
-  cd openssl-1.1.1d/
+  [ ! -f openssl-1.1.1g.tar.gz ] && $DOWNLOADER $OPENSSL
+  tar zxvf openssl-1.1.1g.tar.gz
+  cd openssl-1.1.1g/
   wget https://git.alpinelinux.org/aports/plain/main/openssl/CVE-2019-1551.patch
   wget https://git.alpinelinux.org/aports/plain/main/openssl/man-section.patch
   patch -p1 < CVE-2019-1551.patch
@@ -77,9 +77,9 @@ cd $BUILD_DIRECTORY
 #
  # sqlite3
   cd ..
-  [ ! -f sqlite-autoconf-3300100.tar.gz ] && $DOWNLOADER $SQLITE3
-  tar zxvf sqlite-autoconf-3300100.tar.gz
-  cd sqlite-autoconf-3300100/
+  [ ! -f sqlite-autoconf-3310100.tar.gz ] && $DOWNLOADER $SQLITE3
+  tar zxvf sqlite-autoconf-3310100.tar.gz
+  cd sqlite-autoconf-3310100/
   PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig/ LD_LIBRARY_PATH=$PREFIX/lib/ CC="$C_COMPILER" CXX="$CXX_COMPILER" ./configure --prefix=$PREFIX --enable-static --enable-shared
   make
   make install
