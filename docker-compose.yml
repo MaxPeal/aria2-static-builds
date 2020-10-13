@@ -1,0 +1,16 @@
+docker-build-aria2_311:
+    image: alpine:3.11
+    container_name: docker_build_aria2_311
+    command: tail -f /dev/null
+    volumes:
+        - ./:/usr/local/src/aria2-static-builds
+    working_dir: /usr/local/src/aria2-static-builds
+
+# docker-build-aria2-i386:
+#     image: i386/alpine:3.7
+#     container_name: docker_build_aria2_i386
+#     command: tail -f /dev/null
+#     volumes:
+#         - ./:/usr/local/src/aria2-static-builds
+#     working_dir: /usr/local/src/aria2-static-builds
+
