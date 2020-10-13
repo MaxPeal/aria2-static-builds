@@ -79,14 +79,15 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          docker exec docker_build_aria2_311 sh ccache --print-stats
+          docker exec docker_build_aria2_311 ccache --print-stats
       - name: ccache -s
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
-          docker exec docker_build_aria2_311 sh ccache -s
+          docker exec docker_build_aria2_311 ccache -s
       - name: clean-up
         run: |
+          ls -laRhs ./artifact/
           rm -rf ./artifact/
           mkdir -p ./artifact/
           mv aria2c ./artifact/ ||:
