@@ -39,7 +39,7 @@ jobs:
           ref: master
       - name: mkdir ccache dirs
         run: |
-          mkdir -p /home/runner/.ccache /tmp/ccache /tmp/cachedir ~/cache ~/cache/exclude ~/.ccache ./.ccache ./node_modules /ccache /node_modules
+          mkdir -p /home/runner/.ccache /tmp/ccache /tmp/cachedir ~/cache ~/cache/exclude ~/.ccache ./.ccache ./node_modules
       - name: Cache multiple paths
         uses: actions/cache@v2
         with:
