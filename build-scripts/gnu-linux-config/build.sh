@@ -1,7 +1,11 @@
 #!/bin/sh
-
-apk update && apk add g++ gcc make wget ca-certificates file perl linux-headers pkgconf upx
-
+set -x
+apk update && apk add g++ gcc make wget ca-certificates file perl linux-headers pkgconf upx ccache
+apk add --no-cache --virtual .build-deps
+apk stats
+cd /usr/local/sbin &&  ln -s /usr/lib/ccache/* .
+ccache --print-config
+ccache --show-stats
 sh /usr/local/src/aria2-static-builds/build-scripts/gnu-linux-config/aria2-x86_64-gnu-linux-build-libs
 cd /tmp;
 [ ! -f aria2-1.35.0.tar.xz ] && wget https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0.tar.xz;
@@ -10,7 +14,34 @@ cd aria2-1.35.0;
 
 sh /usr/local/src/aria2-static-builds/build-scripts/gnu-linux-config/aria2-x86_64-gnu-linux-config
 make -j`grep -c ^processor /proc/cpuinfo`
-upx -9 --best --lzma -k -osrc/aria2c-upx-9--best--lzma src/aria2c
+
+ccache --show-stats
+
+FILEname=src/aria2c
+FILEsuffix=upx-9--best--lzma
+UPXpara="-9 --best --lzma -v --no-progress"
+upx $UPXpara -k -o$FILEname-$FILEsuffix $FILEname
+upx -t -v $FILEname-$FILEsuffix
+upx -l -v $FILEname-$FILEsuffix
+upx -d -v -k -o$FILEname-$FILEsuffix-decompress $FILEname-$FILEsuffix
+upx $UPXpara -v -k -o$FILEname-$FILEsuffix-decompress-compress $FILEname-$FILEsuffix-decompress
+upx -d -v -k -o$FILEname-$FILEsuffix-decompress-compress-decompress $FILEname-$FILEsuffix-decompress-compress
+md5sum -b $FILEname*
+ls -alhS src/
+
+
+FILEname=src/aria2c
+FILEsuffix=upx-9--best--ultra-brute
+UPXpara="-9 --best --ultra-brute -v"
+upx $UPXpara -k -o$FILEname-$FILEsuffix $FILEname
+upx -t -v $FILEname-$FILEsuffix
+upx -l -v $FILEname-$FILEsuffix
+upx -d -v -k -o$FILEname-$FILEsuffix-decompress $FILEname-$FILEsuffix
+upx $UPXpara -v -k -o$FILEname-$FILEsuffix-decompress-compress $FILEname-$FILEsuffix-decompress
+upx -d -v -k -o$FILEname-$FILEsuffix-decompress-compress-decompress $FILEname-$FILEsuffix-decompress-compress
+md5sum -b $FILEname*
+ls -alhS src/
+
 strip src/aria2c
 echo "build finished !"
 echo "binary file is src/aria2c"
