@@ -4,7 +4,8 @@ apk update && apk add g++ gcc make wget ca-certificates file perl linux-headers 
 apk add --no-cache --virtual .build-deps ca-certificates gnutls-dev expat-dev sqlite-dev c-ares-dev cppunit-dev bash-completion openrc xz-libs autoconf automake curl-dev
 apk stats
 cd /usr/local/sbin &&  ln -s /usr/lib/ccache/* .
-ccache -M 2G
+/tmp/ccache
+#ccache -M 2G
 ccache -p || ccache --print-config
 ccache -s || ccache --show-stats
 ccache --print-stats
