@@ -4,9 +4,25 @@ apk update && apk add g++ gcc make wget ca-certificates file perl linux-headers 
 apk add --no-cache --virtual .build-deps ca-certificates gnutls-dev expat-dev sqlite-dev c-ares-dev cppunit-dev bash-completion openrc xz-libs autoconf automake curl-dev
 apk stats
 # debian a like
-cd /usr/local/sbin &&  (cd /usr/local/sbin && ln -s /usr/lib/ccache/* . || true )
+#cd /usr/local/sbin && ln -sfv /usr/lib/ccache/* .
+#cd /usr/local/sbin &&  (cd /usr/local/sbin && ln -s /usr/lib/ccache/* . || true )
+#cd /usr/local/sbin && ln -sfv /usr/lib/ccache/* . || echo /usr/local/sbin NOT FOUND
+
+# debian a like
+cd /usr/lib/ccache/bin && cd /usr/local/sbin && ln -sfv /usr/lib/ccache/bin/* . || echo /usr/lib/ccache/bin/ or /usr/local/sbin NOT FOUND
+cd /usr/lib/ccache && cd /usr/local/sbin && ln -sfv /usr/lib/ccache/* . || echo /usr/lib/ccache/ or /usr/local/sbin NOT FOUND
 # alpine linux testet on 3.11
-cd /usr/local/bin && (cd /usr/local/sbin && ln -s /usr/lib/ccache/bin/* . || true )
+cd /usr/lib/ccache/bin && cd /usr/local/bin && ln -sfv /usr/lib/ccache/bin/* . || echo /usr/lib/ccache/bin/ or /usr/local/bin NOT FOUND
+cd /usr/lib/ccache && cd /usr/local/bin && ln -sfv /usr/lib/ccache/* . || echo /usr/lib/ccache/ or /usr/local/bin NOT FOUND
+#
+command -v gcc
+which gcc
+type gcc
+readlink -vvv -f $(command -v gcc) || echo readlink NOT FOUND
+realpath $(command -v gcc) || echo realpath NOT FOUND
+ls -la $(command -v gcc)
+
+#cd /usr/local/bin && (cd /usr/local/bin && ln -s /usr/lib/ccache/bin/* . || true )
 #/tmp/ccache
 #ccache -M 2G
 ccache -p || ccache --print-config
