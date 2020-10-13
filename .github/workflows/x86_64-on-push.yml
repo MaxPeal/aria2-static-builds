@@ -31,9 +31,7 @@ jobs:
            /tmp/cachedir
            ~/cache
            !~/cache/exclude
-           **/node_modules
            ~/.ccache
-           **/.ccache
          # https://github.com/azerothcore/azerothcore-wotlk/blob/master/.github/workflows/core_build.yml
          key: ccache:${{ matrix.os }}:${{ matrix.compiler }}:${{ matrix.modules }}-modules:${{ github.ref }}:${{ github.sha }}
          restore-keys: |
