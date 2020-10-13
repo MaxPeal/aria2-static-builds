@@ -89,9 +89,9 @@ jobs:
           docker exec docker_build_aria2_311 ccache -s
       - name: clean-up
         run: |
-          ls -laRhs ./artifact/
-          rm -rf ./artifact/
-          mkdir -p ./artifact/
+          ls -laRhs ./artifact/ ||:
+          rm -rf ./artifact/ ||:
+          mkdir -p ./artifact/ ||:
           mv aria2c ./artifact/ ||:
           mv ./OUT/* ./artifact/
       - name : upload-artifact
