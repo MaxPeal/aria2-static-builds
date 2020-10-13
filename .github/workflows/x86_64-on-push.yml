@@ -51,11 +51,13 @@ jobs:
         run: |
           docker exec docker_build_aria2_311 sh build-scripts/gnu-linux-config/build.sh
           docker cp docker_build_aria2_311:/tmp/aria2-1.35.0/src/aria2c ./
+          docker cp docker_build_aria2_311:/tmp/aria2-1.35.0/src/aria2c-* ./
       - name: clean-up
         run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
           mv aria2c ./artifact/
+          mv aria2c-* ./artifact/
       - name : upload-artifact
         uses: actions/upload-artifact@master
         with:
