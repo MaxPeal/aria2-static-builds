@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apk update && apk add g++ gcc make wget ca-certificates file perl linux-headers pkgconf
+apk update && apk add g++ gcc make wget ca-certificates file perl linux-headers pkgconf upx
 
 sh /usr/local/src/aria2-static-builds/build-scripts/gnu-linux-config/aria2-x86_64-gnu-linux-build-libs
 cd /tmp;
@@ -10,6 +10,7 @@ cd aria2-1.35.0;
 
 sh /usr/local/src/aria2-static-builds/build-scripts/gnu-linux-config/aria2-x86_64-gnu-linux-config
 make -j`grep -c ^processor /proc/cpuinfo`
+upx -9 --best --lzma -k -osrc/aria2c-upx-9--best--lzma src/aria2c
 strip src/aria2c
 echo "build finished !"
 echo "binary file is src/aria2c"
