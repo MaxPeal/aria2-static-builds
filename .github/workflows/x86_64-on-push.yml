@@ -26,12 +26,18 @@ jobs:
         uses: actions/cache@v2
         with:
          path: |
+           /home/runner/.ccache
            ~/cache
            !~/cache/exclude
            **/node_modules
            ~/.ccache
            **/.ccache
-           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+         # https://github.com/azerothcore/azerothcore-wotlk/blob/master/.github/workflows/core_build.yml
+         key: ccache:${{ matrix.os }}:${{ matrix.compiler }}:${{ matrix.modules }}-modules:${{ github.ref }}:${{ github.sha }}
+         restore-keys: |
+           ccache:${{ matrix.os }}:${{ matrix.compiler }}:${{ matrix.modules }}-modules:${{ github.ref }}
+           ccache:${{ matrix.os }}:${{ matrix.compiler }}:${{ matrix.modules }}-modules
+# ##key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
       - name: installation docker-composer
         env:
           DEBIAN_FRONTEND: noninteractive
