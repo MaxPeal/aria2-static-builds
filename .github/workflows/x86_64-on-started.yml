@@ -16,7 +16,7 @@ jobs:
 
     steps:
       #- name: 校验本地文件
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         with:
           ref: master
       - name: download and install docker-composer
@@ -38,7 +38,7 @@ jobs:
           mkdir -p ./artifact/
           mv aria2c* ./artifact/
       - name : upload-artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: ${{ env.name }}-name
           path: ${{ github.workspace }}/artifact/**/*
