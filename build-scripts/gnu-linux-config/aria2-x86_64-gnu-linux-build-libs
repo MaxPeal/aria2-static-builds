@@ -17,12 +17,16 @@ C_COMPILER="gcc"
 CXX_COMPILER="g++"
 
 #CHECK TOOL FOR DOWNLOAD
+# FIXME 
+set +eu
  aria2c --help > /dev/null
  if [ "$?" -eq 0 ] ; then
    DOWNLOADER="aria2c --check-certificate=false"
  else
    DOWNLOADER="wget -c"
  fi
+set +eu
+# FIXME
 
 ## DEPENDENCES ##
 ZLIB=http://sourceforge.net/projects/libpng/files/zlib/1.2.11/zlib-1.2.11.tar.gz
