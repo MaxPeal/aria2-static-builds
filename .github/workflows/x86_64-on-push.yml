@@ -22,6 +22,16 @@ jobs:
         uses: actions/checkout@master
         with:
           ref: master
+      - name: Cache multiple paths
+        uses: actions/cache@v2
+        with:
+         path: |
+           ~/cache
+           !~/cache/exclude
+           **/node_modules
+           ~/.ccache
+           **/.ccache
+           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
       - name: installation docker-composer
         env:
           DEBIAN_FRONTEND: noninteractive
