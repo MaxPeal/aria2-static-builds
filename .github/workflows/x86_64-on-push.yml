@@ -52,6 +52,16 @@ jobs:
           docker exec docker_build_aria2_311 sh build-scripts/gnu-linux-config/build.sh
           docker cp docker_build_aria2_311:/tmp/aria2-1.35.0/src/aria2c ./
           docker cp docker_build_aria2_311:/tmp/aria2-1.35.0/src/aria2c-* ./
+      - name: ccache --print-stats
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          docker exec docker_build_aria2_311 sh ccache --print-stats
+      - name: ccache -s
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          docker exec docker_build_aria2_311 sh ccache -s
       - name: clean-up
         run: |
           rm -rf ./artifact/
