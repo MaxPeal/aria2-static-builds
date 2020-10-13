@@ -4,8 +4,10 @@ apk update && apk add g++ gcc make wget ca-certificates file perl linux-headers 
 apk add --no-cache --virtual .build-deps ca-certificates gnutls-dev expat-dev sqlite-dev c-ares-dev cppunit-dev bash-completion openrc xz-libs autoconf automake curl-dev
 apk stats
 cd /usr/local/sbin &&  ln -s /usr/lib/ccache/* .
-ccache --print-config
-ccache --show-stats
+ccache -M 2G
+ccache -p || ccache --print-config
+ccache -s || ccache --show-stats
+ccache --print-stats
 sh /usr/local/src/aria2-static-builds/build-scripts/gnu-linux-config/aria2-x86_64-gnu-linux-build-libs
 cd /tmp;
 [ ! -f aria2-1.35.0.tar.xz ] && wget https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0.tar.xz;
@@ -15,7 +17,8 @@ cd aria2-1.35.0;
 sh /usr/local/src/aria2-static-builds/build-scripts/gnu-linux-config/aria2-x86_64-gnu-linux-config
 make -j`grep -c ^processor /proc/cpuinfo`
 
-ccache --show-stats
+ccache -s || ccache --show-stats
+ccache --print-stats
 
 FILEname=src/aria2c
 FILEsuffix=upx-9--best--lzma
