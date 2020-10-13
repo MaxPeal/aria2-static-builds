@@ -27,6 +27,8 @@ jobs:
         with:
          path: |
            /home/runner/.ccache
+           /tmp/ccache
+           /tmp/cachedir
            ~/cache
            !~/cache/exclude
            **/node_modules
