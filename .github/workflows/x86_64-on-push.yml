@@ -74,8 +74,8 @@ jobs:
         run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
-          mv aria2c ./artifact/
-          mv aria2c-* ./artifact/
+          mv aria2c ./artifact/ ||:
+          mv ./OUT/* ./artifact/
       - name : upload-artifact
         uses: actions/upload-artifact@master
         with:
