@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x
+set -eu
 apk update && apk add g++ gcc make wget ca-certificates file perl linux-headers pkgconf upx ccache 
 apk add --no-cache --virtual .build-deps ca-certificates gnutls-dev expat-dev sqlite-dev c-ares-dev cppunit-dev bash-completion openrc xz-libs autoconf automake curl-dev
 apk stats
