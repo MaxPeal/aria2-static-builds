@@ -40,8 +40,15 @@ make -j`grep -c ^processor /proc/cpuinfo`
 ccache -s || ccache --show-stats
 ccache --print-stats
 
+echo "strip binary !"
+strip src/aria2c
+echo "build finished !"
+echo "binary file is src/aria2c"
+
 FILEname=src/aria2c
 FILEsuffix=upx-9--best--lzma
+# FIXME
+set +eu
 UPXpara="-9 --best --lzma -v --no-progress"
 upx $UPXpara -k -o$FILEname-$FILEsuffix $FILEname
 upx -t -v $FILEname-$FILEsuffix
@@ -50,11 +57,14 @@ upx -d -v -k -o$FILEname-$FILEsuffix-decompress $FILEname-$FILEsuffix
 upx $UPXpara -v -k -o$FILEname-$FILEsuffix-decompress-compress $FILEname-$FILEsuffix-decompress
 upx -d -v -k -o$FILEname-$FILEsuffix-decompress-compress-decompress $FILEname-$FILEsuffix-decompress-compress
 md5sum -b $FILEname*
-ls -alhS src/
-
+ls -alhS $FILEname*
+set -eu
+# FIXME
 
 FILEname=src/aria2c
 FILEsuffix=upx-9--best--ultra-brute
+# FIXME
+set +eu
 UPXpara="-9 --best --ultra-brute -v"
 upx $UPXpara -k -o$FILEname-$FILEsuffix $FILEname
 upx -t -v $FILEname-$FILEsuffix
@@ -63,8 +73,6 @@ upx -d -v -k -o$FILEname-$FILEsuffix-decompress $FILEname-$FILEsuffix
 upx $UPXpara -v -k -o$FILEname-$FILEsuffix-decompress-compress $FILEname-$FILEsuffix-decompress
 upx -d -v -k -o$FILEname-$FILEsuffix-decompress-compress-decompress $FILEname-$FILEsuffix-decompress-compress
 md5sum -b $FILEname*
-ls -alhS src/
-
-strip src/aria2c
-echo "build finished !"
-echo "binary file is src/aria2c"
+ls -alhS $FILEname*
+set -eu
+# FIXME
