@@ -37,6 +37,9 @@ jobs:
         uses: actions/checkout@master
         with:
           ref: master
+      - name: mkdir ccache dirs
+        run: |
+          mkdir -p /home/runner/.ccache /tmp/ccache /tmp/cachedir ~/cache ~/cache/exclude ~/.ccache ./.ccache ./node_modules /ccache /node_modules
       - name: Cache multiple paths
         uses: actions/cache@v2
         with:
@@ -54,7 +57,6 @@ jobs:
          restore-keys: |
            ccache:${{ matrix.os }}:${{ matrix.compiler }}:${{ matrix.modules }}-modules:${{ github.ref }}
            ccache:${{ matrix.os }}:${{ matrix.compiler }}:${{ matrix.modules }}-modules
-# ##key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
       - name: installation docker-composer
         env:
           DEBIAN_FRONTEND: noninteractive
