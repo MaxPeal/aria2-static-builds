@@ -46,10 +46,11 @@ echo "build finished !"
 echo "binary file is src/aria2c"
 
 FILEname=src/aria2c
-FILEsuffix=upx-9--best--lzma
+FILEsuffix=upx-9-f--best--lzma
 # FIXME
 set +eu
-UPXpara="-9 --best --lzma -v --no-progress"
+##UPXpara="-9 -f --best --lzma -v --no-progress"
+UPXpara="-9 -f --best --lzma -v"
 upx $UPXpara -k -o$FILEname-$FILEsuffix $FILEname
 upx -t -v $FILEname-$FILEsuffix
 upx -l -v $FILEname-$FILEsuffix
@@ -62,10 +63,10 @@ set -eu
 # FIXME
 
 FILEname=src/aria2c
-FILEsuffix=upx-9--best--ultra-brute
+FILEsuffix=upx-9-f--best--ultra-brute
 # FIXME
 set +eu
-UPXpara="-9 --best --ultra-brute -v"
+UPXpara="-9 -f --best --ultra-brute -v"
 upx $UPXpara -k -o$FILEname-$FILEsuffix $FILEname
 upx -t -v $FILEname-$FILEsuffix
 upx -l -v $FILEname-$FILEsuffix
@@ -76,3 +77,9 @@ md5sum -b $FILEname*
 ls -alhS $FILEname*
 set -eu
 # FIXME
+
+echo copy files to /tmp/OUT/
+set -xv
+mkdir /tmp/OUT ||:
+cp -p /tmp/aria2-*/src/aria2c-* /tmp/OUT/ ||:
+cp -p /tmp/aria2-*/src/aria2c /tmp/OUT/

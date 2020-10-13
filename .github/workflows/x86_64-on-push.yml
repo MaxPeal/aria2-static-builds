@@ -53,7 +53,13 @@ jobs:
         run: |
           docker exec docker_build_aria2_311 sh build-scripts/gnu-linux-config/build.sh
           docker cp docker_build_aria2_311:/tmp/aria2-1.35.0/src/aria2c ./
-          docker cp docker_build_aria2_311:/tmp/aria2-1.35.0/src/aria2c-* ./
+          # docker exec docker_build_aria2_311 tar Ccf $(dirname /tmp/aria2-1.35.0/src/aria2c) - $(basename /tmp/aria2-1.35.0/src/aria2c) | tar Cxf ./OUT-BIN -
+          #WORKING# $(mkdir ./OUT ||:) && docker exec docker_build_aria2_311 tar -f - -cC $(dirname /tmp/aria2-1.35.0/src) $(basename /tmp/aria2-1.35.0/src) | tar -f - -xC ./OUT
+        $(mkdir ./OUT ||:) && docker exec docker_build_aria2_311 tar -f - -cC $(dirname /tmp/OUT) $(basename /tmp/OUT) | tar -f - -xC ./OUT
+          # https://docs.docker.com/engine/reference/commandline/cp/
+        # docker exec CONTAINER tar Ccf $(dirname SRC_PATH) - $(basename SRC_PATH) | tar Cxf DEST_PATH -
+        # NOT WORKING with busybox tar# tar Ccf $(dirname SRC_PATH) - $(basename SRC_PATH) | docker exec -i CONTAINER tar Cxf DEST_PATH -
+         # NOT WORKING with busybox tar#  #docker cp docker_build_aria2_311:/tmp/aria2-1.35.0/src/aria2c-* ./
       - name: ccache --print-stats
         env:
           DEBIAN_FRONTEND: noninteractive
