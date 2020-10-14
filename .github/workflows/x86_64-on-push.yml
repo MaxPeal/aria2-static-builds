@@ -57,6 +57,17 @@ jobs:
          restore-keys: |
            ccache:${{ matrix.os }}:${{ matrix.compiler }}:${{ matrix.modules }}-modules:${{ github.ref }}
            ccache:${{ matrix.os }}:${{ matrix.compiler }}:${{ matrix.modules }}-modules
+      - name: Cache multiple paths
+        uses: actions/cache@v2
+        with:
+         path: |
+           /tmp/*.tar.gz
+           /tmp/*.tar.bz2
+           /tmp/*.tar.xz
+         key: ${{ runner.os }}-libs-${{ hashFiles('**/*-build-libs') }}
+         restore-keys: |
+           ${{ runner.os }}-libs-
+         # https://github.com/azerothcore/azerothcore-wotlk/blob/master/.github/workflows/core_build.yml
       - name: installation docker-composer
         env:
           DEBIAN_FRONTEND: noninteractive
