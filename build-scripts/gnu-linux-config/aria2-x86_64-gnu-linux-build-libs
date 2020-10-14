@@ -30,10 +30,10 @@ set +eu
 
 ## DEPENDENCES ##
 ZLIB=http://sourceforge.net/projects/libpng/files/zlib/1.2.11/zlib-1.2.11.tar.gz
-OPENSSL=http://www.openssl.org/source/openssl-1.1.1g.tar.gz
-EXPAT=https://github.com/libexpat/libexpat/releases/download/R_2_2_9/expat-2.2.9.tar.bz2
-SQLITE3=https://sqlite.org/2020/sqlite-autoconf-3310100.tar.gz
-C_ARES=http://c-ares.haxx.se/download/c-ares-1.16.0.tar.gz
+OPENSSL=http://www.openssl.org/source/openssl-1.1.1h.tar.gz
+EXPAT=https://github.com/libexpat/libexpat/releases/download/R_2_2_10/expat-2.2.10.tar.bz2
+SQLITE3=https://sqlite.org/2020/sqlite-autoconf-3330000.tar.gz
+C_ARES=http://c-ares.haxx.se/download/c-ares-1.16.1.tar.gz
 SSH2=https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
 
 ## CONFIG ##
@@ -73,7 +73,7 @@ cd $BUILD_DIRECTORY
   [ ! -f openssl-*.tar.gz ] && $DOWNLOADER $OPENSSL
   tar zxvf openssl-*.tar.gz
   cd openssl-*/
-  wget https://git.alpinelinux.org/aports/plain/main/openssl/CVE-2019-1551.patch
+  wget https://git.alpinelinux.org/aports/plain/main/openssl/ppc64.patch
   wget https://git.alpinelinux.org/aports/plain/main/openssl/man-section.patch
   patch -p1 < CVE-2019-1551.patch
   patch -p1 < man-section.patch
