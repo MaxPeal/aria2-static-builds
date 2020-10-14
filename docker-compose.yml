@@ -7,7 +7,7 @@ docker-build-aria2_311:
         - ./:/usr/local/src/aria2-static-builds
         - /tmp/ccache:/tmp/ccache
         - /tmp/cachedir:/tmp/cachedir
-    #working_dir: /usr/local/src/aria2-static-builds
+    working_dir: /usr/local/src/aria2-static-builds
 
 # docker-build-aria2-i386:
 #     image: i386/alpine:3.7
